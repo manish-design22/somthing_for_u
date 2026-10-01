@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#07151a">
+  <title>A Little Something For You 💚</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="aurora aurora-a"></div>
+  <div class="aurora aurora-b"></div>
+  <div class="aurora aurora-c"></div>
+  <div id="particles"></div>
+
+  <main id="app">
+
+    <!-- PAGE 1 -->
+    <section class="page active" id="page1">
+      <div class="content">
+        <div class="image-wrap">
+          <div class="image-glow"></div>
+          <img src="assets/cat1.jpg" alt="Your picture" class="character" onerror="this.style.display='none'">
+          <div class="image-fallback">♡</div>
+        </div>
+
+        <div class="eyebrow">A little something</div>
+        <h1>I have something<br><span>special</span><br>to tell you...</h1>
+        <p>Something that will change everything ✨</p>
+
+        <button class="primary-btn" onclick="goTo(2)">
+          <span>♡</span> Tap to Begin
+        </button>
+      </div>
+    </section>
+
+    <!-- PAGE 2 -->
+    <section class="page" id="page2">
+      <button class="back-btn" onclick="goTo(1)">← Back</button>
+      <div class="content">
+        <div class="image-wrap small">
+          <div class="image-glow"></div>
+          <img src="assets/cat2.jpg" alt="Your picture" class="character" onerror="this.style.display='none'">
+          <div class="image-fallback">♡</div>
+        </div>
+
+        <h2>Be honest with me...</h2>
+        <p>This is important to me <span class="accent">♥</span></p>
+        <h3>Do you trust me?</h3>
+
+        <div class="actions">
+          <button class="yes-btn" onclick="yesAndNext(3)">Yes, I do 💚</button>
+          <button class="no-btn" id="trustNo" onclick="moveNo('trustNo')">No 😶</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 3 -->
+    <section class="page" id="page3">
+      <button class="back-btn" onclick="goTo(2)">← Back</button>
+      <div class="content">
+        <div class="image-wrap small">
+          <div class="image-glow"></div>
+          <img src="assets/cat3.jpg" alt="Your picture" class="character" onerror="this.style.display='none'">
+          <div class="image-fallback">♡</div>
+        </div>
+
+        <h2>One more thing...</h2>
+        <p>I need to know this <span class="accent">♥</span></p>
+        <h3>Do you also love me?</h3>
+
+        <div class="actions">
+          <button class="yes-btn" onclick="yesAndNext(4)">Yes, I love you! 💚</button>
+          <button class="no-btn" id="loveNo" onclick="moveNo('loveNo')">No 😶</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 4 -->
+    <section class="page" id="page4">
+      <button class="back-btn" onclick="goTo(3)">← Back</button>
+      <div class="content">
+        <div class="image-wrap medium">
+          <div class="image-glow"></div>
+          <img src="assets/cat4.jpg" alt="Your picture" class="character" onerror="this.style.display='none'">
+          <div class="image-fallback">♡</div>
+        </div>
+
+        <h2>Last question, I promise!</h2>
+        <p>This one is the most important ✨</p>
+        <h3>Will you be mine forever?</h3>
+
+        <div class="actions">
+          <button class="yes-btn" onclick="finalYes()">Yes, forever! 💚</button>
+          <button class="no-btn think-btn" id="foreverNo" onclick="goTo(5)">Let me think... 🤭</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 5 -->
+    <section class="page say-yes-page" id="page5">
+      <button class="back-btn" onclick="goTo(4)">← Back</button>
+      <div class="content">
+        <div class="image-wrap medium">
+          <div class="image-glow"></div>
+          <img src="assets/cat4.jpg" alt="Your picture" class="character" onerror="this.style.display='none'">
+          <div class="image-fallback">♡</div>
+        </div>
+
+        <h2>Just Say YES! 💕</h2>
+        <p>Come on, don't make me wait! You know deep down in your heart that you want to say yes. Let's make this moment magical together! ✨</p>
+        <div class="say-yes-icons">💕 ✨ 💖 ✨ 💕</div>
+        <button class="yes-btn pink-yes-btn" onclick="goTo(6)">♥ Yes, I'll Say YES! ✨</button>
+      </div>
+    </section>
+
+    <!-- PAGE 6 -->
+    <section class="page final-page" id="page6">
+      <div class="content">
+        <div class="celebrate-icons">✦ 💚 ✧ ✨ 💚 ✦</div>
+        <h1>You made me the<br><span>happiest!</span></h1>
+        <p>Thank you for saying yes 🥹</p>
+        <em>I promise to love you forever and always...</em>
+        <blockquote class="romantic-quote">“In a world full of choices, I’d choose you in every lifetime.”</blockquote>
+        <button class="video-reveal-btn" type="button" onclick="openFinalVideo()">
+          <span>Press Here</span>
+          <small>It's for u, my love 💕</small>
+        </button>
+        <div class="big-heart">♥</div>
+        <button class="replay-btn" onclick="restart()">↻ Replay All</button>
+      </div>
+      <video class="final-video" playsinline preload="metadata">
+        <source src="assets/video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </section>
+
+  </main>
+
+  <!-- smooth confirmation popup -->
+  <div class="popup-backdrop" id="popup">
+    <div class="popup-card">
+      <div class="popup-icon">💚</div>
+      <h4 id="popupTitle">Aww... you said yes!</h4>
+      <p id="popupText">That made me smile.</p>
+      <div class="popup-loader"><span></span></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
