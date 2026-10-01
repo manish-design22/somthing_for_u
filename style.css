@@ -59,7 +59,6 @@ button{font:inherit}
   animation:characterFloat 3.4s ease-in-out infinite;
 }
 .image-fallback{position:absolute;z-index:1;font-size:66px;color:var(--mint);text-shadow:0 0 35px rgba(86,224,192,.6)}
-.character:not([src=""]){}
 
 .eyebrow{font-size:.95rem;color:#9adbd0;letter-spacing:.08em;margin-top:5px}
 h1,h2,h3,p{margin-left:auto;margin-right:auto}
