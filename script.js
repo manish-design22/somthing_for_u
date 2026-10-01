@@ -99,19 +99,21 @@ function burstConfetti(){
   }
 }
 
-musicToggle.addEventListener("click", async ()=>{
-  try{
-    if(music.paused){
-      await music.play();
-      musicToggle.querySelector("span").textContent = "ON";
-    }else{
-      music.pause();
-      musicToggle.querySelector("span").textContent = "OFF";
+if(music && musicToggle){
+  musicToggle.addEventListener("click", async ()=>{
+    try{
+      if(music.paused){
+        await music.play();
+        musicToggle.querySelector("span").textContent = "ON";
+      }else{
+        music.pause();
+        musicToggle.querySelector("span").textContent = "OFF";
+      }
+    }catch(e){
+      musicToggle.querySelector("span").textContent = "ADD MP3";
     }
-  }catch(e){
-    musicToggle.querySelector("span").textContent = "ADD MP3";
-  }
-});
+  });
+}
 
 // Soft background particles
 const particleBox = document.getElementById("particles");
@@ -147,3 +149,4 @@ confettiStyle.textContent = `
   to{transform:translate(var(--x),${105+Math.random()*25}vh) rotate(var(--r));opacity:0}
 }`;
 document.head.appendChild(confettiStyle);
+
